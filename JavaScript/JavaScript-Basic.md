@@ -12,16 +12,40 @@
 4. JavaScript의 파생 언어
    - TypeScript : Microsoft가 개발, 자료형의 명시화에 집중하여 만듬
 5. 공식 문서 : ECMA 명세서 (특히 6버전으로 넘어갈 때의 자료가 많이 중요하니 반드시 알아두기 바람 - 추후 별도로 정리)
-6. HTML에서 script태그를 사용하여 JavaScript를 읽을 수 있으나, inline 속성으로  src가 있을 경우, 태그 내부의 코드는 무시된다.
+6. HTML에서 script태그를 사용하여 JavaScript를 읽을 수 있으나, inline 속성으로  ``src``가 있을 경우, 태그 내부의 코드는 무시된다.
 7. JavaScript의 코드 구조
    - 일반적으로 줄바꿈은 세미콜론을 의미(세미콜론 자동 삽입), 하지만 추정하지 못하는 경우도 있다.
    - 특히 대괄호 앞에는 세미콜론이 있다고 가정하지 않음에 주의할 것.
 8. JavaScript의 엄격 모드
-   - ES5에서 추가된 기능으로 인해 발생한 호환성 문제를 해결하기 위한 대책으로, JavaScript 엔진이 변경사항을 활성화할 수 있도록 하기 위해서 스크립트 최상단에 "use strict"를 작성하여 사용한다.
+   - ES5에서 추가된 기능으로 인해 발생한 호환성 문제를 해결하기 위한 대책으로, JavaScript 엔진이 변경사항을 활성화할 수 있도록 하기 위해서 스크립트 최상단에 ``"use strict"``를 작성하여 사용한다.
    - 스크립트 최상단이 아닐 경우 동작하지 않고, 어떤 방법으로도 이 모드를 해제할 수 없다!
    - 브라우저 콘솔(개발자 도구) 에는 기본적으로 적용되어 있지 않음에 주의해야 한다.
    - 단, 클래스와 모듈을 사용해 구성된 코드에서는 엄격 모드가 자동으로 적용된다!
 
 ## 변수와 상수, 자료형, 형변환, 연산자 등
 
-### 변수와 상수
+1. 변수는 ``let``을 사용해 생성, 상수는 ``const``를 사용해 생성한다.
+   * 이전에는 변수(variable)를 ``var``로 선언하였으나, 현재는 사용하지 않는 방식이다.
+   * ``var``를 쓰지 않는 이유 : 블록 스코프가 없다! (함수 스코프 혹은 전역 스코프만 존재)
+     => 스코프와 호이스팅 부분에서 다시 정리
+   * 변수는 값을 변경할 수 있다. 상수는 값을 변경할 수 없다.
+2. 예약어(변수 혹은 상수로 사용할 수 없는 단어)의 종류
+   * 조건문/반복문 관련 : ``for, while, do, break, continue, if, else, in, of``
+   * 모듈 생성/호출 관련 : ``export, import``
+   * 함수 관련 : ``function, return``
+   * 선택자와 호이스팅 관련 : ``this, super, switch, case``
+   * 에러 핸들링 관련 : ``try, catch, finally``
+   * 선언 관련 : ``class, new, var, const``
+   * 기타 : ``true, false, null``
+   * strict mode 사용 시 : ``let, static, yield``
+   * module code 혹은 비동기 함수 내에서 : ``await``
+3. JavaScript의 8가지 자료형
+   * number
+   * BigInt
+   * string
+   * boolean
+   * null
+   * undefined
+   * object
+   * symbol
+4. JavaScript의 자료형 판단 연산자 ``typeof`` 을 사용할 때 주의해야 하는 경우
